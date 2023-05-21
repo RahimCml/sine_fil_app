@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sine_fil_app/constants/color.dart';
+import 'package:sine_fil_app/pages/movie_page.dart';
 
 import '../delegates/custom_search_delegate.dart';
 
@@ -116,22 +117,29 @@ class _HomePageState extends State<HomePage> {
                           ],
                         ),
                       )),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 20, left: 20, right: 20),
-                    child: SizedBox(
-                      height: 200,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: const [
-                          Text('Movie name'),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 12),
-                            child: Text('movie name'),
-                          ),
-                        ],
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 20,left: 28),
+                        child: Text('VİZYONDAKİLER'),
                       ),
-                    ),
+                      Padding(
+                        padding:
+                        const EdgeInsets.only(top: 20, left: 20, right: 20),
+                        child: SizedBox(
+                          height: 200,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: const [
+                              MoviePage(),
+                              MoviePage(),
+                              MoviePage()
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
