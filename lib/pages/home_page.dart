@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sine_fil_app/constants/color.dart';
-import 'package:sine_fil_app/pages/movie_page.dart';
+import 'package:sine_fil_app/pages/companents/category_component.dart';
+import 'package:sine_fil_app/pages/companents/movie_companent.dart';
 
 import '../delegates/custom_search_delegate.dart';
 
@@ -121,20 +122,40 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Padding(
-                        padding: EdgeInsets.only(top: 20,left: 28),
+                        padding: EdgeInsets.only(top: 20, left: 28),
                         child: Text('VİZYONDAKİLER'),
                       ),
                       Padding(
                         padding:
-                        const EdgeInsets.only(top: 20, left: 20, right: 20),
+                            const EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: SizedBox(
                           height: 200,
                           child: ListView(
                             scrollDirection: Axis.horizontal,
                             children: const [
-                              MoviePage(),
-                              MoviePage(),
-                              MoviePage()
+                              MovieCompanent(),
+                              MovieCompanent(),
+                              MovieCompanent(),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 20, left: 20, right: 20),
+                        child: SizedBox(
+                          height: 40,
+                          width: double.infinity,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: const [
+                              CategoryComponent(
+                                  categoryName: 'Akran zorbalığı'),
+                              CategoryComponent(
+                                  categoryName: 'Birinci dünya savaşı'),
+                              CategoryComponent(
+                                  categoryName: 'Sanal gerçeklik'),
+                              CategoryComponent(categoryName: 'Ejderha'),
                             ],
                           ),
                         ),
