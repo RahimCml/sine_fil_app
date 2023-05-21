@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sine_fil_app/constants/color.dart';
 
 import 'drawer_page.dart';
 import 'home_page.dart';
@@ -21,10 +22,13 @@ class _LayoutPageState extends State<LayoutPage> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [
-          DrawerPage(controller: _controller,),
-          HomePage(controller: _controller, duration: duration,)
-      ],),
+      body: Container(
+        color: ConstantColor.kMainColor,
+        child: Stack(children: [
+            DrawerPage(controller: _controller,),
+            HomePage(controller: _controller, duration: duration,)
+        ],),
+      ),
     );
   }
 }

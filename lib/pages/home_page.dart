@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sine_fil_app/constants/color.dart';
 
+import '../delegates/custom_search_delegate.dart';
+
 class HomePage extends StatefulWidget {
   final AnimationController controller;
   final Duration duration;
@@ -13,11 +15,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool menuOpen = false;
-    late Animation<double> _scaleAnimation;
+  late Animation<double> _scaleAnimation;
 
   @override
   void initState() {
-    _scaleAnimation = Tween<double>(begin: 1, end: 0.6).animate(widget.controller);
+    _scaleAnimation =
+        Tween<double>(begin: 1, end: 0.6).animate(widget.controller);
     super.initState();
   }
 
@@ -36,7 +39,8 @@ class _HomePageState extends State<HomePage> {
         scale: _scaleAnimation,
         child: Container(
           decoration: BoxDecoration(
-              color:ConstantColor.kMainColor, borderRadius: BorderRadius.circular(30)),
+              color: ConstantColor.kMainColor,
+              borderRadius: BorderRadius.circular(30)),
           child: Column(
             children: [
               const SizedBox(height: 50),
@@ -66,7 +70,10 @@ class _HomePageState extends State<HomePage> {
                             },
                             color: Colors.white,
                           ),
-                          const Text('SINEFIL', style: TextStyle( fontSize: 20, color: Colors.black),),
+                    const Text(
+                      'SINEFIL',
+                      style: TextStyle(fontSize: 20, color: Colors.black),
+                    ),
                     IconButton(
                       icon: const Icon(Icons.lock_outline),
                       onPressed: null,
@@ -75,40 +82,59 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Container(
-                color: ConstantColor.secondarycolor,
-                  margin: const EdgeInsets.only(top: 30),
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: ElevatedButton(
-                    onPressed: () {
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.grey[
-                          100],
-                      elevation:
-                          0,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                              16)),
-                    ),
-                    child: Row(
-                      children: const [
-                        Expanded(
-                          child: Text(
-                            'Filmler, Diziler, Aktörler ve fazlasını ara!',
-                            style: TextStyle(
-                                color: Colors.grey,
-                                fontSize:
-                                    12),
-                          ),
+              Column(
+                children: [
+                  Container(
+                      color: ConstantColor.kMainColor,
+                      margin: const EdgeInsets.only(top: 30),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.grey[100],
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16)),
                         ),
-                        Icon(Icons.search,
-                            size: 16,
-                            color: Colors
-                                .grey),
-                      ],
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: IconButton(
+                                onPressed: () {
+                                  showSearch(
+                                    context: context,
+                                    delegate: CustomSearchDelegate(),
+                                  );
+                                },
+                                icon: const Padding(
+                                  padding: EdgeInsets.only(left: 340),
+                                  child: Icon(Icons.search),
+                                ),
+                                color: Colors.red,
+                              ),
+                            )
+                          ],
+                        ),
+                      )),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 20, left: 20, right: 20),
+                    child: SizedBox(
+                      height: 200,
+                      child: ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: const [
+                          Text('Movie name'),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 12),
+                            child: Text('movie name'),
+                          ),
+                        ],
+                      ),
                     ),
-                  )),
+                  ),
+                ],
+              ),
               const SizedBox(height: 50),
             ],
           ),
