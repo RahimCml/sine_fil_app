@@ -26,7 +26,7 @@ class _DrawerPageState extends State<DrawerPage> {
       child: ScaleTransition(
         scale: _scaleAnimation!,
         child: Container(
-          color: Colors.white,
+          color: ConstantColor.secondarycolor,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(children: [
             const SizedBox(height: 50),
@@ -45,7 +45,6 @@ class _DrawerPageState extends State<DrawerPage> {
             const SizedBox(height: 30),
             const MenuItem(title: 'Home', icon: Icons.home),
             const MenuItem(title: 'My Account', icon: Icons.person),
-            const MenuItem(title: 'My Orders', icon: Icons.history),
             const MenuItem(title: 'Wishlist', icon: Icons.list),
             const MenuItem(
               title: 'Settings',

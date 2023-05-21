@@ -75,6 +75,40 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
+              Container(
+                color: ConstantColor.secondarycolor,
+                  margin: const EdgeInsets.only(top: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: ElevatedButton(
+                    onPressed: () {
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.grey[
+                          100],
+                      elevation:
+                          0,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                              16)),
+                    ),
+                    child: Row(
+                      children: const [
+                        Expanded(
+                          child: Text(
+                            'Filmler, Diziler, Aktörler ve fazlasını ara!',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize:
+                                    12),
+                          ),
+                        ),
+                        Icon(Icons.search,
+                            size: 16,
+                            color: Colors
+                                .grey),
+                      ],
+                    ),
+                  )),
               const SizedBox(height: 50),
             ],
           ),
