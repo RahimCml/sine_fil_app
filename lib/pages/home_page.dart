@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sine_fil_app/constants/color.dart';
 import 'package:sine_fil_app/pages/companents/category_component.dart';
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     return AnimatedPositioned(
       duration: widget.duration,
       top: 0,
-      bottom: 30,
+      bottom: 0,
       left: menuOpen ? 0.2 * size.width : 0,
       right: menuOpen ? -0.4 * size.width : 0,
       child: ScaleTransition(
@@ -140,31 +141,101 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 20, left: 20, right: 20),
-                        child: SizedBox(
-                          height: 40,
-                          width: double.infinity,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: const [
-                              CategoryComponent(
-                                  categoryName: 'Akran zorbalığı'),
-                              CategoryComponent(
-                                  categoryName: 'Birinci dünya savaşı'),
-                              CategoryComponent(
-                                  categoryName: 'Sanal gerçeklik'),
-                              CategoryComponent(categoryName: 'Ejderha'),
-                            ],
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 20, left: 20, right: 20),
+                            child: SizedBox(
+                              height: 40,
+                              width: double.infinity,
+                              child: ListView(
+                                scrollDirection: Axis.horizontal,
+                                children: const [
+                                  CategoryComponent(
+                                      categoryName: 'Akran zorbalığı'),
+                                  CategoryComponent(
+                                      categoryName: 'Birinci dünya savaşı'),
+                                  CategoryComponent(
+                                      categoryName: 'Sanal gerçeklik'),
+                                  CategoryComponent(categoryName: 'Ejderha'),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 20, left: 20, right: 20),
+                            child: SizedBox(
+                              height: 200,
+                              width: double.infinity,
+                              child: ListView(
+                                  scrollDirection: Axis.horizontal,
+                                  children: const [
+                                    MovieCompanent(),
+                                    MovieCompanent(),
+                                    MovieCompanent()
+                                  ]),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'YORUMLAR',
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 100,
+                                  child: ListView.builder(
+                                    padding: const EdgeInsets.only(
+                                      left: 20,
+                                      bottom: 20,
+                                    ),
+                                    dragStartBehavior: DragStartBehavior.start,
+                                    itemCount: 3,
+                                    scrollDirection: Axis.vertical,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        children: [
+                                          Row(
+                                            children: const [
+                                              Align(
+                                                alignment: Alignment.bottomLeft,
+                                                child: CircleAvatar(
+                                                  backgroundColor:
+                                                      Color(0xFF444A54),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.all(8.0),
+                                                child: Text('Yorumlar...'),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            height: 20,
+                                          )
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                        ],
                       ),
                     ],
                   ),
                 ],
               ),
-              const SizedBox(height: 50),
+              const SizedBox(height: 10),
             ],
           ),
         ),

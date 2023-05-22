@@ -22,8 +22,8 @@ class _LayoutPageState extends State<LayoutPage> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: ConstantColor.kMainColor,
+      body: SizedBox(
+        height: double.maxFinite,
         child: Stack(children: [
             DrawerPage(controller: _controller,),
             HomePage(controller: _controller, duration: duration,)
