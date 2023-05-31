@@ -1,9 +1,15 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sine_fil_app/bloc/movie_bloc.dart';
 import 'package:sine_fil_app/constants/color.dart';
+import 'package:sine_fil_app/data/models/movie_fetch_model.dart';
 import 'package:sine_fil_app/pages/companents/category_component.dart';
 import 'package:sine_fil_app/pages/companents/movie_companent.dart';
+import 'package:sine_fil_app/pages/trend_page.dart';
 
+import '../data/service/movie_service.dart';
 import '../delegates/custom_search_delegate.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,6 +25,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool menuOpen = false;
   late Animation<double> _scaleAnimation;
+  final MovieService _movieService = MovieService();
 
   @override
   void initState() {
@@ -126,19 +133,12 @@ class _HomePageState extends State<HomePage> {
                         padding: EdgeInsets.only(top: 20, left: 28),
                         child: Text('VİZYONDAKİLER'),
                       ),
-                      Padding(
+                      const Padding(
                         padding:
-                            const EdgeInsets.only(top: 20, left: 20, right: 20),
+                            EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: SizedBox(
-                          height: 200,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: const [
-                              MovieCompanent(),
-                              MovieCompanent(),
-                              MovieCompanent(),
-                            ],
-                          ),
+                          height: 260,
+                          child: TrendPage(),
                         ),
                       ),
                       Column(
