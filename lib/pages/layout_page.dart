@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sine_fil_app/constants/color.dart';
 
 import 'drawer_page.dart';
 import 'home_page.dart';

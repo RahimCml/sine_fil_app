@@ -1,6 +1,7 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:sine_fil_app/data/models/genre_get_model.dart';
 import 'package:sine_fil_app/data/models/movie_trend_model.dart';
 import 'package:sine_fil_app/data/service/movie_service.dart';
 
@@ -13,11 +14,12 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
   final MovieService _movieService = MovieService();
 
   MovieBloc() : super(const MovieState()) {
-    fetchDataFromAPI();
+    fetchDataFromService();
   }
 
-  void fetchDataFromAPI() async {
+  void fetchDataFromService() async {
     MovieTrendModel result = await _movieService.trendMovieInfo();
+          print('1 $result');
     emit(MovieState(trend: result));
   }
 }

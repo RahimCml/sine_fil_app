@@ -7,6 +7,7 @@ import 'package:sine_fil_app/constants/color.dart';
 import 'package:sine_fil_app/data/models/movie_fetch_model.dart';
 import 'package:sine_fil_app/pages/companents/category_component.dart';
 import 'package:sine_fil_app/pages/companents/movie_companent.dart';
+import 'package:sine_fil_app/pages/genres_page.dart';
 import 'package:sine_fil_app/pages/trend_page.dart';
 
 import '../data/service/movie_service.dart';
@@ -134,36 +135,24 @@ class _HomePageState extends State<HomePage> {
                         child: Text('VİZYONDAKİLER'),
                       ),
                       const Padding(
-                        padding:
-                            EdgeInsets.only(top: 20, left: 20, right: 20),
+                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: SizedBox(
                           height: 260,
                           child: TrendPage(),
                         ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
+                      const Padding(
+                            padding: EdgeInsets.only(
                                 top: 20, left: 20, right: 20),
                             child: SizedBox(
                               height: 40,
                               width: double.infinity,
-                              child: ListView(
-                                scrollDirection: Axis.horizontal,
-                                children: const [
-                                  CategoryComponent(
-                                      categoryName: 'Akran zorbalığı'),
-                                  CategoryComponent(
-                                      categoryName: 'Birinci dünya savaşı'),
-                                  CategoryComponent(
-                                      categoryName: 'Sanal gerçeklik'),
-                                  CategoryComponent(categoryName: 'Ejderha'),
-                                ],
-                              ),
+                              child: GenresPage()
                             ),
                           ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
                           Padding(
                             padding: const EdgeInsets.only(
                                 top: 20, left: 20, right: 20),
