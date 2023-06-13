@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
+import '../global/global_image_url.dart';
 
 class GenresPage extends StatefulWidget {
   const GenresPage({Key? key}) : super(key: key);
@@ -17,8 +18,6 @@ class _GenresPageState extends State<GenresPage> {
     return BlocBuilder<GenreMovieBlocBloc, GenreMovieBlocState>(
       builder: (context, state) {
         final movies = state.movies;
-        String baseUrl = "https://image.tmdb.org/t/p/";
-        String imageSize = "w500";
         return SizedBox(
           height: 200,
           child: ListView.builder(
@@ -28,7 +27,7 @@ class _GenresPageState extends State<GenresPage> {
               final movie = movies?.results?[index];
               String? posterPath = state.movies?.results?[index].posterPath;
               print(posterPath);
-              String? imageUrl = "$baseUrl$imageSize$posterPath";
+              String imageUrl = "${GlobalImage.baseUrl}${GlobalImage.imageSize}$posterPath";
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Column(
