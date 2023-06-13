@@ -2,12 +2,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sine_fil_app/bloc/genre_bloc/genre_bloc.dart';
+import 'package:sine_fil_app/bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
 import 'package:sine_fil_app/bloc/movie_bloc.dart';
 import 'package:sine_fil_app/constants/color.dart';
 import 'package:sine_fil_app/data/models/movie_fetch_model.dart';
 import 'package:sine_fil_app/pages/companents/category_component.dart';
 import 'package:sine_fil_app/pages/companents/movie_companent.dart';
-import 'package:sine_fil_app/pages/genres_page.dart';
+import 'package:sine_fil_app/pages/geners_page.dart';
+import 'package:sine_fil_app/pages/genres_type_page.dart';
 import 'package:sine_fil_app/pages/trend_page.dart';
 
 import '../data/service/movie_service.dart';
@@ -38,8 +41,6 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    print(_scaleAnimation);
-    print(menuOpen);
     return AnimatedPositioned(
       duration: widget.duration,
       top: 0,
@@ -142,30 +143,22 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       const Padding(
-                            padding: EdgeInsets.only(
-                                top: 20, left: 20, right: 20),
-                            child: SizedBox(
-                              height: 40,
-                              width: double.infinity,
-                              child: GenresPage()
-                            ),
-                          ),
+                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                        child: SizedBox(
+                            height: 40,
+                            width: double.infinity,
+                            child: GenresTypePage()),
+                      ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
+                          const Padding(
+                            padding: EdgeInsets.only(
                                 top: 20, left: 20, right: 20),
                             child: SizedBox(
                               height: 200,
                               width: double.infinity,
-                              child: ListView(
-                                  scrollDirection: Axis.horizontal,
-                                  children: const [
-                                    MovieCompanent(),
-                                    MovieCompanent(),
-                                    MovieCompanent()
-                                  ]),
+                              child: GenresPage()
                             ),
                           ),
                           Padding(
