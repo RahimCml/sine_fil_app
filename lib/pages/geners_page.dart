@@ -19,7 +19,7 @@ class _GenresPageState extends State<GenresPage> {
       builder: (context, state) {
         final movies = state.movies;
         return SizedBox(
-          height: 200,
+          height: 250,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: movies?.results?.length,
@@ -32,19 +32,17 @@ class _GenresPageState extends State<GenresPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Column(
                   children: [
-                    SizedBox(
+                    CachedNetworkImage(
                       height: 150,
-                      child: CachedNetworkImage(
-                        imageUrl: imageUrl,
-                        placeholder: (context, url) =>
-                            const CircularProgressIndicator(),
-                        errorWidget: (context, url, error) =>
-                            const Icon(Icons.error),
-                      ),
+                      imageUrl: imageUrl,
+                      placeholder: (context, url) =>
+                          const CircularProgressIndicator(),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                     ),
                     const SizedBox(height: 8),
                     SizedBox(
-                      width: 150,height: 30,
+                      width: 110,height: 30,
                       child: Text(
                         movie?.title ?? '',
                         maxLines: 4,

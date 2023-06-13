@@ -1,14 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sine_fil_app/bloc/genre_bloc/genre_bloc.dart';
-import 'package:sine_fil_app/bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
-import 'package:sine_fil_app/bloc/movie_bloc.dart';
 import 'package:sine_fil_app/constants/color.dart';
-import 'package:sine_fil_app/data/models/movie_fetch_model.dart';
-import 'package:sine_fil_app/pages/companents/category_component.dart';
-import 'package:sine_fil_app/pages/companents/movie_companent.dart';
 import 'package:sine_fil_app/pages/geners_page.dart';
 import 'package:sine_fil_app/pages/genres_type_page.dart';
 import 'package:sine_fil_app/pages/trend_page.dart';
@@ -111,6 +103,7 @@ class _HomePageState extends State<HomePage> {
                         child: Row(
                           children: [
                             Expanded(
+                              flex: 1,
                               child: IconButton(
                                 onPressed: () {
                                   showSearch(
@@ -137,10 +130,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       const Padding(
                         padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-                        child: SizedBox(
-                          height: 260,
-                          child: TrendPage(),
-                        ),
+                        child: Expanded(flex: 1, child: TrendPage()),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -154,62 +144,58 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           const Padding(
                             padding: EdgeInsets.only(
-                                top: 20, left: 20, right: 20),
+                                top: 20, left: 16, right: 20),
                             child: SizedBox(
                               height: 200,
-                              width: double.infinity,
                               child: GenresPage()
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20, right: 20),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                const Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'YORUMLAR',
-                                  ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Text(
+                                  'YORUMLAR',
                                 ),
-                                SizedBox(
-                                  height: 100,
-                                  child: ListView.builder(
-                                    padding: const EdgeInsets.only(
-                                      left: 20,
-                                      bottom: 20,
-                                    ),
-                                    dragStartBehavior: DragStartBehavior.start,
-                                    itemCount: 3,
-                                    scrollDirection: Axis.vertical,
-                                    itemBuilder: (context, index) {
-                                      return Column(
-                                        children: [
-                                          Row(
-                                            children: const [
-                                              Align(
-                                                alignment: Alignment.bottomLeft,
-                                                child: CircleAvatar(
-                                                  backgroundColor:
-                                                      Color(0xFF444A54),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: EdgeInsets.all(8.0),
-                                                child: Text('Yorumlar...'),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                            height: 20,
-                                          )
-                                        ],
-                                      );
-                                    },
+                              ),
+                              SizedBox(
+                                height: 100,
+                                child: ListView.builder(
+                                  padding: const EdgeInsets.only(
+                                    left: 20,
+                                    bottom: 20,
                                   ),
+                                  dragStartBehavior: DragStartBehavior.start,
+                                  itemCount: 3,
+                                  scrollDirection: Axis.vertical,
+                                  itemBuilder: (context, index) {
+                                    return Column(
+                                      children: [
+                                        Row(
+                                          children: const [
+                                            Align(
+                                              alignment: Alignment.bottomLeft,
+                                              child: CircleAvatar(
+                                                backgroundColor:
+                                                    Color(0xFF444A54),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.all(8.0),
+                                              child: Text('Yorumlar...'),
+                                            ),
+                                          ],
+                                        ),
+                                        const SizedBox(
+                                          height: 20,
+                                        )
+                                      ],
+                                    );
+                                  },
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           )
                         ],
                       ),

@@ -18,7 +18,7 @@ class _TrendPageState extends State<TrendPage> {
     return BlocBuilder<MovieBloc, MovieState>(
       builder: (context, state) {
         return SizedBox(
-          height: 200,
+          height: 260,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: state.trend?.results?.length ?? 0,
@@ -26,7 +26,7 @@ class _TrendPageState extends State<TrendPage> {
               String? posterPath = state.trend?.results?[index].posterPath;
               String imageUrl = "${GlobalImage.baseUrl}${GlobalImage.imageSize}$posterPath";
               return Container(
-                width: 150,
+                width: 140,
                 margin: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Column(
                   children: [
