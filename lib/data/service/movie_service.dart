@@ -25,7 +25,7 @@ class MovieService {
 
   Future<MovieTrendModel> trendMovieInfo() async {
     final response = await http.get(Uri.parse(
-        'https://api.themoviedb.org/3/trending/all/day?api_key=bca5897ad38bcccecaa6e170c6849b7a'));
+        '${ApiConstants.baseUrl}trending/all/day?${ApiConstants.apiKey}'));
 
     if (response.statusCode == 200) {
       Map<String, dynamic> jsonResult = json.decode(response.body);
@@ -38,7 +38,7 @@ class MovieService {
 
   Future<GenresGetModel> genresInfo() async {
     final response = await http.get(Uri.parse(
-        'https://api.themoviedb.org/3/genre/movie/list?api_key=bca5897ad38bcccecaa6e170c6849b7a'));
+        '${ApiConstants.baseUrl}genre/movie/list?${ApiConstants.apiKey}'));
 
     if (response.statusCode == 200) {
       Map<String, dynamic> jsonResult = json.decode(response.body);
@@ -48,7 +48,9 @@ class MovieService {
     throw Exception('Failed to fetch trend data');
   }
 
-  Future<GenreMovieGetModel> movieInfoFromGenre(id) async {
+  //better way in order to create
+  Future<GenreMovieGetModel> movieInfoFromGenre(v) => movieInfo(v);
+  Future<GenreMovieGetModel> movieInfo(id) async {
     String language = 'tr';
     Uri url = Uri.parse(
         '${ApiConstants.baseUrl}discover/movie?${ApiConstants.apiKey}&language=$language&with_genres=$id');
@@ -58,8 +60,25 @@ class MovieService {
       GenreMovieGetModel movies = GenreMovieGetModel.fromJson(jsonResult);
       print('abii $movies');
       return movies;
-    }else {
-    throw Exception('Failed to fetch movies');
+    } else {
+      throw Exception('Failed to fetch movies');
+    }
   }
+
+Future<MovieFetchModel> getMovieFromAPI(v) => getMovie(v);
+  Future<MovieFetchModel> getMovie(id) async {
+  print('ididididi$id');
+      String language = 'tr';
+  final url = Uri.parse('${ApiConstants.baseUrl}movie/$id?${ApiConstants.apiKey}&language=$language');
+
+  final response = await http.get(url);
+  if (response.statusCode == 200) {
+    print('oldu');
+    Map<String, dynamic> jsonResult = json.decode(response.body);
+    print(jsonResult);
+    return MovieFetchModel.fromJson(jsonResult);
   }
+  throw Exception('Failed to fetch trend data');
+}
+
 }
