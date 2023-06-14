@@ -150,52 +150,55 @@ class _HomePageState extends State<HomePage> {
                               child: GenresPage()
                             ),
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Text(
-                                  'YORUMLAR',
-                                ),
-                              ),
-                              SizedBox(
-                                height: 100,
-                                child: ListView.builder(
-                                  padding: const EdgeInsets.only(
-                                    left: 20,
-                                    bottom: 20,
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    'YORUMLAR',
                                   ),
-                                  dragStartBehavior: DragStartBehavior.start,
-                                  itemCount: 3,
-                                  scrollDirection: Axis.vertical,
-                                  itemBuilder: (context, index) {
-                                    return Column(
-                                      children: [
-                                        Row(
-                                          children: const [
-                                            Align(
-                                              alignment: Alignment.bottomLeft,
-                                              child: CircleAvatar(
-                                                backgroundColor:
-                                                    Color(0xFF444A54),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.all(8.0),
-                                              child: Text('Yorumlar...'),
-                                            ),
-                                          ],
-                                        ),
-                                        const SizedBox(
-                                          height: 20,
-                                        )
-                                      ],
-                                    );
-                                  },
                                 ),
-                              ),
-                            ],
+                                SizedBox(
+                                  height: 100,
+                                  child: ListView.builder(
+                                    padding: const EdgeInsets.only(
+                                      left: 20,
+                                      bottom: 20,
+                                    ),
+                                    dragStartBehavior: DragStartBehavior.start,
+                                    itemCount: 3,
+                                    scrollDirection: Axis.vertical,
+                                    itemBuilder: (context, index) {
+                                      return Column(
+                                        children: [
+                                          Row(
+                                            children: const [
+                                              Align(
+                                                alignment: Alignment.bottomLeft,
+                                                child: CircleAvatar(
+                                                  backgroundColor:
+                                                      Color(0xFF444A54),
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.all(8.0),
+                                                child: Text('Yorumlar...'),
+                                              ),
+                                            ],
+                                          ),
+                                          const SizedBox(
+                                            height: 20,
+                                          )
+                                        ],
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
                           )
                         ],
                       ),
