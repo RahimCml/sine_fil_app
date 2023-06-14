@@ -7,21 +7,21 @@ import '../../data/service/movie_service.dart';
 part 'genre_movie_bloc_event.dart';
 part 'genre_movie_bloc_state.dart';
 
-class GenreMovieBlocBloc extends Bloc<GenreMovieBlocEvent, GenreMovieBlocState> {
+class GenreMovieBloc extends Bloc<GenreMovieEvent, GenreMovieState> {
   final MovieService _movieService = MovieService();
 
-  GenreMovieBlocBloc() : super(GenreMovieBlocState()) {
+  GenreMovieBloc() : super(GenreMovieState()) {
     getGenreIdFromService();
   }
 
   void getGenreIdFromService() async {
-    on<GenreMovieBlocEvent>(
+    on<GenreMovieEvent>(
       (event, emit) async {
-        if (event is GenreMovieBlocEvent) {
+        if (event is GenreMovieEvent) {
           GenreMovieGetModel result =
               await _movieService.movieInfoFromGenre(event.id.toString());
               print(result.results![1].title);
-              emit(GenreMovieBlocState(movies: result));
+              emit(GenreMovieState(movies: result));
         }
       },
     );

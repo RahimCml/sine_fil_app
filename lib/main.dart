@@ -5,6 +5,7 @@ import 'package:sine_fil_app/pages/layout_page.dart';
 import 'bloc/genre_bloc/genre_bloc.dart';
 import 'bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
 import 'bloc/movie_bloc.dart';
+import 'bloc/movie_data_bloc/movie_data_bloc_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => GenreBloc(),
         ),
-        BlocProvider(create: (context) => GenreMovieBlocBloc()),
+        BlocProvider(create: (context) => GenreMovieBloc()),
+        BlocProvider(create: (context) => MovieDataBloc())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

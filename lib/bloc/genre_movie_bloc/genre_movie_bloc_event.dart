@@ -1,9 +1,9 @@
 part of 'genre_movie_bloc_bloc.dart';
 
 @immutable
-class GenreMovieBlocEvent {
+class GenreMovieEvent {
   String id;
-  GenreMovieBlocEvent({
+  GenreMovieEvent({
     this.id = '28',
   });
 }

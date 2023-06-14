@@ -15,7 +15,7 @@ class GenresPage extends StatefulWidget {
 class _GenresPageState extends State<GenresPage> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<GenreMovieBlocBloc, GenreMovieBlocState>(
+    return BlocBuilder<GenreMovieBloc, GenreMovieState>(
       builder: (context, state) {
         final movies = state.movies;
         return SizedBox(

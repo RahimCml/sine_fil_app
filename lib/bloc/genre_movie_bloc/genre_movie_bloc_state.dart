@@ -1,9 +1,9 @@
 part of 'genre_movie_bloc_bloc.dart';
 
 @immutable
-class GenreMovieBlocState {
+class GenreMovieState {
       final GenreMovieGetModel? movies;
-  GenreMovieBlocState({
+  GenreMovieState({
     this.movies,
   });
 

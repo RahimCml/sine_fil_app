@@ -23,12 +23,12 @@ class _GenresTypePageState extends State<GenresTypePage> {
           itemBuilder: (context, index) {
             final id = genres?[index].id;
             final genreName = genres?[index].name;
-            context.read<GenreMovieBlocBloc>().add(GenreMovieBlocEvent(id: '28'));
+            context.read<GenreMovieBloc>().add(GenreMovieEvent(id: '28'));
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5),
               child: GestureDetector(
                 onTap: () {
-                  context.read<GenreMovieBlocBloc>().add(GenreMovieBlocEvent(id: id.toString()));
+                  context.read<GenreMovieBloc>().add(GenreMovieEvent(id: id.toString()));
                   print(id);
                 },
                 child: Chip(
