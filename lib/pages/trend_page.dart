@@ -26,12 +26,12 @@ class _TrendPageState extends State<TrendPage> {
             itemCount: state.trend?.results?.length ?? 0,
             itemBuilder: (context, index) {
               dynamic data = state.trend?.results?[index];
-              int? dataIp = state.trend?.results?[index].id;
+              int? dataId = state.trend?.results?[index].id;
               String imageUrl =
                   "${GlobalImage.baseUrl}${GlobalImage.imageSize}${data.posterPath}";
               return GestureDetector(
                 onTap: () {
-                  context.read<MovieDataBloc>().add(MovieDataEvent(id: dataIp));
+                  context.read<MovieDataBloc>().add(MovieDataEvent(id: dataId));
                   Navigator.push(context, MaterialPageRoute<void>(
                     builder: (BuildContext context) {
                       return const MoviePage();

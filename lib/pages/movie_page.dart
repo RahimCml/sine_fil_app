@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sine_fil_app/bloc/movie_data_bloc/movie_data_bloc_bloc.dart';
 import 'package:sine_fil_app/data/models/movie_fetch_model.dart';
+import 'package:sine_fil_app/pages/genre_page.dart';
 
 import '../constants/color.dart';
 import '../global/global_image_url.dart';
@@ -78,25 +79,40 @@ class _MoviePageState extends State<MoviePage> {
                                   padding: const EdgeInsets.only(
                                       right: 20, left: 20, top: 8, bottom: 18),
                                   // add navigator
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: const BorderRadius.all(Radius.circular(20)),
-                                        color: ConstantColor.secondarycolor,
-                                        boxShadow: [
-                                          BoxShadow(
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      context
+                                          .read<MovieDataBloc>()
+                                          .add(MovieDataEvent(id: data.id));
+                                      Navigator.push(context,
+                                          MaterialPageRoute<void>(
+                                        builder: (BuildContext context) {
+                                          return const GenrePage();
+                                        },
+                                      ));
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(20)),
+                                          color: ConstantColor.secondarycolor,
+                                          boxShadow: [
+                                            BoxShadow(
                                               color: ConstantColor.kMainColor,
                                               blurRadius: 3,
-                                              )
-                                        ]),
-                                    child: Chip(
-                                      label: Text(
-                                        genresName.toString(),
-                                        style: const TextStyle(
-                                            color: Color(0xFFFFD255)),
+                                            )
+                                          ]),
+                                      child: Chip(
+                                        label: Text(
+                                          genresName.toString(),
+                                          style: const TextStyle(
+                                              color: Color(0xFFFFD255)),
+                                        ),
+                                        backgroundColor:
+                                            const Color(0xFF444A54),
+                                        padding: const EdgeInsets.only(
+                                            left: 12, right: 12),
                                       ),
-                                      backgroundColor: const Color(0xFF444A54),
-                                      padding: const EdgeInsets.only(
-                                          left: 12, right: 12),
                                     ),
                                   ),
                                 );
@@ -120,7 +136,8 @@ class _MoviePageState extends State<MoviePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(right: 18, left: 8, bottom: 18, top: 18),
+                    padding: const EdgeInsets.only(
+                        right: 18, left: 8, bottom: 18, top: 18),
                     child: Container(
                         width: size.width / 4,
                         height: 300,
