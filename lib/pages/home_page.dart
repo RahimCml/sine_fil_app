@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sine_fil_app/constants/color.dart';
-import 'package:sine_fil_app/pages/geners_page.dart';
+import 'package:sine_fil_app/pages/companents/genre_companent.dart';
 import 'package:sine_fil_app/pages/genres_type_page.dart';
 import 'package:sine_fil_app/pages/trend_page.dart';
 
@@ -158,7 +158,7 @@ class _HomePageState extends State<HomePage> {
                           const Padding(
                             padding:
                                 EdgeInsets.only(top: 20, left: 16, right: 20),
-                            child: SizedBox(height: 200, child: GenresPage()),
+                            child: SizedBox(height: 200, child: GenresCompannent()),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 20),
