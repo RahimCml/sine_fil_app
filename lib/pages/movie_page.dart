@@ -86,7 +86,6 @@ class _MoviePageState extends State<MoviePage> {
                                           BoxShadow(
                                               color: ConstantColor.kMainColor,
                                               blurRadius: 3,
-                                              // spreadRadius: 3,
                                               )
                                         ]),
                                     child: Chip(
@@ -121,7 +120,7 @@ class _MoviePageState extends State<MoviePage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(18),
+                    padding: const EdgeInsets.only(right: 18, left: 8, bottom: 18, top: 18),
                     child: Container(
                         width: size.width / 4,
                         height: 300,
