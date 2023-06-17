@@ -43,11 +43,15 @@ class _HomePageState extends State<HomePage> {
         scale: _scaleAnimation,
         child: Container(
           decoration: BoxDecoration(
-              color: ConstantColor.kMainColor,
+              color: ConstantColor.secondarycolor,
               borderRadius: BorderRadius.circular(30)),
           child: Column(
             children: [
-              const SizedBox(height: 50),
+              Container(
+                color: ConstantColor.kMainColor,
+                height: 60,
+                width: double.infinity,
+              ),
               Container(
                 color: ConstantColor.kMainColor,
                 child: Row(
@@ -89,36 +93,43 @@ class _HomePageState extends State<HomePage> {
               Column(
                 children: [
                   Container(
-                      color: ConstantColor.kMainColor,
-                      margin: const EdgeInsets.only(top: 30),
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.grey[100],
-                          elevation: 0,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                        ),
-                        child: Row(
-                          children: [
-                            Expanded(
-                              flex: 1,
-                              child: IconButton(
-                                onPressed: () {
-                                  showSearch(
-                                    context: context,
-                                    delegate: CustomSearchDelegate(),
-                                  );
-                                },
-                                icon: const Padding(
-                                  padding: EdgeInsets.only(left: 340),
-                                  child: Icon(Icons.search),
-                                ),
-                                color: Colors.red,
+                      decoration:BoxDecoration(
+                          color: ConstantColor.kMainColor,
+                          borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(16),
+                              bottomRight: Radius.circular(16))
                               ),
-                            )
-                          ],
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 10, top: 10),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey[100],
+                            elevation: 0,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16)),
+                          ),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                flex: 1,
+                                child: IconButton(
+                                  onPressed: () {
+                                    showSearch(
+                                      context: context,
+                                      delegate: CustomSearchDelegate(),
+                                    );
+                                  },
+                                  icon: const Padding(
+                                    padding: EdgeInsets.only(left: 340),
+                                    child: Icon(Icons.search),
+                                  ),
+                                  color: Colors.red,
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       )),
                   Column(
@@ -129,11 +140,13 @@ class _HomePageState extends State<HomePage> {
                         child: Text('VİZYONDAKİLER'),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                        padding:
+                            EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: Expanded(flex: 1, child: TrendPage()),
                       ),
                       const Padding(
-                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                        padding:
+                            EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: SizedBox(
                             height: 40,
                             width: double.infinity,
@@ -143,12 +156,9 @@ class _HomePageState extends State<HomePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Padding(
-                            padding: EdgeInsets.only(
-                                top: 20, left: 16, right: 20),
-                            child: SizedBox(
-                              height: 200,
-                              child: GenresPage()
-                            ),
+                            padding:
+                                EdgeInsets.only(top: 20, left: 16, right: 20),
+                            child: SizedBox(height: 200, child: GenresPage()),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 20),
@@ -168,7 +178,8 @@ class _HomePageState extends State<HomePage> {
                                       left: 20,
                                       bottom: 20,
                                     ),
-                                    dragStartBehavior: DragStartBehavior.start,
+                                    dragStartBehavior:
+                                        DragStartBehavior.start,
                                     itemCount: 3,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
@@ -177,7 +188,8 @@ class _HomePageState extends State<HomePage> {
                                           Row(
                                             children: const [
                                               Align(
-                                                alignment: Alignment.bottomLeft,
+                                                alignment:
+                                                    Alignment.bottomLeft,
                                                 child: CircleAvatar(
                                                   backgroundColor:
                                                       Color(0xFF444A54),

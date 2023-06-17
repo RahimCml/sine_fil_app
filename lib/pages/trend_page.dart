@@ -20,7 +20,7 @@ class _TrendPageState extends State<TrendPage> {
     return BlocBuilder<MovieBloc, MovieState>(
       builder: (context, state) {
         return SizedBox(
-          height: 260,
+          height: 270,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: state.trend?.results?.length ?? 0,
