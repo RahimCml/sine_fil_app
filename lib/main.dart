@@ -29,12 +29,15 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => MovieDataBloc())
       ],
       child: MaterialApp(
+        routes: {
+          '/layout': (context) => const LayoutPage()
+        },
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: LayoutPage(),
+        home: const LayoutPage(),
       ),
     );
   }

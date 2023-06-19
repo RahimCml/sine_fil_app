@@ -4,6 +4,8 @@ import 'drawer_page.dart';
 import 'home_page.dart';
 
 class LayoutPage extends StatefulWidget {
+  const LayoutPage({super.key});
+
   @override
   _LayoutPageState createState() => _LayoutPageState();
 }

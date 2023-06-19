@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sine_fil_app/constants/color.dart';
 import 'package:sine_fil_app/pages/companents/genre_companent.dart';
 import 'package:sine_fil_app/pages/genres_type_page.dart';
+import 'package:sine_fil_app/pages/log_in.dart';
 import 'package:sine_fil_app/pages/trend_page.dart';
 
 import '../data/service/movie_service.dart';
@@ -59,14 +60,14 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     !menuOpen
                         ? IconButton(
-                            icon: const Icon(Icons.menu),
+                            icon: Icon(Icons.menu, color: ConstantColor.secondarycolor,),
                             onPressed: () {
                               setState(() {
                                 widget.controller.forward();
                                 menuOpen = true;
                               });
                             },
-                            color: Colors.white,
+                            color: Colors.red,
                           )
                         : IconButton(
                             icon: const Icon(Icons.arrow_back_ios),
@@ -76,15 +77,20 @@ class _HomePageState extends State<HomePage> {
                                 menuOpen = false;
                               });
                             },
-                            color: Colors.white,
+                            color: ConstantColor.secondarycolor
                           ),
                     const Text(
                       'SINEFIL',
                       style: TextStyle(fontSize: 20, color: Colors.black),
                     ),
                     IconButton(
-                      icon: const Icon(Icons.lock_outline),
-                      onPressed: null,
+                      icon: Icon(Icons.lock_outline, color: ConstantColor.secondarycolor,),
+                      onPressed: () {
+                        Navigator.pushReplacement(context, MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                          return const LogIn();
+                        }));
+                      },
                       color: ConstantColor.kMainColor,
                     )
                   ],
@@ -93,19 +99,18 @@ class _HomePageState extends State<HomePage> {
               Column(
                 children: [
                   Container(
-                      decoration:BoxDecoration(
+                      decoration: BoxDecoration(
                           color: ConstantColor.kMainColor,
                           borderRadius: const BorderRadius.only(
                               bottomLeft: Radius.circular(16),
-                              bottomRight: Radius.circular(16))
-                              ),
+                              bottomRight: Radius.circular(16))),
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 10, top: 10),
                         child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey[100],
+                            backgroundColor: Colors.grey[300],
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16)),
@@ -125,7 +130,7 @@ class _HomePageState extends State<HomePage> {
                                     padding: EdgeInsets.only(left: 340),
                                     child: Icon(Icons.search),
                                   ),
-                                  color: Colors.red,
+                                  color: ConstantColor.secondarycolor,
                                 ),
                               )
                             ],
@@ -140,13 +145,11 @@ class _HomePageState extends State<HomePage> {
                         child: Text('VİZYONDAKİLER'),
                       ),
                       const Padding(
-                        padding:
-                            EdgeInsets.only(top: 20, left: 20, right: 20),
+                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: Expanded(flex: 1, child: TrendPage()),
                       ),
                       const Padding(
-                        padding:
-                            EdgeInsets.only(top: 20, left: 20, right: 20),
+                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
                         child: SizedBox(
                             height: 40,
                             width: double.infinity,
@@ -158,7 +161,8 @@ class _HomePageState extends State<HomePage> {
                           const Padding(
                             padding:
                                 EdgeInsets.only(top: 20, left: 16, right: 20),
-                            child: SizedBox(height: 200, child: GenresCompannent()),
+                            child: SizedBox(
+                                height: 200, child: GenresCompannent()),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(left: 20),
@@ -178,8 +182,7 @@ class _HomePageState extends State<HomePage> {
                                       left: 20,
                                       bottom: 20,
                                     ),
-                                    dragStartBehavior:
-                                        DragStartBehavior.start,
+                                    dragStartBehavior: DragStartBehavior.start,
                                     itemCount: 3,
                                     scrollDirection: Axis.vertical,
                                     itemBuilder: (context, index) {
@@ -188,8 +191,7 @@ class _HomePageState extends State<HomePage> {
                                           Row(
                                             children: const [
                                               Align(
-                                                alignment:
-                                                    Alignment.bottomLeft,
+                                                alignment: Alignment.bottomLeft,
                                                 child: CircleAvatar(
                                                   backgroundColor:
                                                       Color(0xFF444A54),

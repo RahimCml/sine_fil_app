@@ -2,10 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sine_fil_app/bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
+import 'package:sine_fil_app/pages/home_page.dart';
 
 import '../bloc/movie_data_bloc/movie_data_bloc_bloc.dart';
 import '../constants/color.dart';
 import '../global/global_image_url.dart';
+import 'layout_page.dart';
 import 'movie_page.dart';
 
 class GenrePage extends StatefulWidget {
@@ -15,15 +17,22 @@ class GenrePage extends StatefulWidget {
   State<GenrePage> createState() => _GenrePageState();
 }
 
-class _GenrePageState extends State<GenrePage> {
+
+class _GenrePageState extends State<GenrePage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
             backgroundColor: ConstantColor.kMainColor,
-            title: const Text(
-              'SINEFIL',
-              style: TextStyle(fontSize: 20, color: Colors.black),
+            title: GestureDetector(
+              onTap: () {
+Navigator.pushNamedAndRemoveUntil(context, '/layout', (route) => false);
+
+              },
+              child: const Text(
+                'SINEFIL',
+                style: TextStyle(fontSize: 20, color: Colors.black),
+              ),
             ),
             actions: [
               IconButton(
