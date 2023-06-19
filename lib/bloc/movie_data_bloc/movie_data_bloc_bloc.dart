@@ -19,9 +19,7 @@ class MovieDataBloc extends Bloc<MovieDataEvent, MovieDataState> {
   void getMovie() async {
         on<MovieDataEvent>((event, emit) async {
       if(event is MovieDataEvent) {
-        print('idididi2 ${event.id}');
-        MovieFetchModel result = await _movieService.getMovieFromAPI(event.id as int);
-        print('olaa $result');
+        MovieFetchModel result = await _movieService.getMovieFromAPI(event.id);
         emit(MovieDataState(data: result));
       }
     });

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sine_fil_app/bloc/genre_bloc/genre_bloc.dart';
+import 'package:sine_fil_app/bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
 import 'package:sine_fil_app/bloc/movie_data_bloc/movie_data_bloc_bloc.dart';
 import 'package:sine_fil_app/data/models/movie_fetch_model.dart';
 import 'package:sine_fil_app/pages/genre_page.dart';
@@ -19,7 +21,6 @@ class _MoviePageState extends State<MoviePage> {
   Widget build(BuildContext context) {
     return BlocBuilder<MovieDataBloc, MovieDataState>(
       builder: (context, state) {
-        print('ne diyonn ${state.data}');
         MovieFetchModel? data = state.data;
         dynamic imgUrl =
             '${GlobalImage.baseUrl}${GlobalImage.imageSize}${data?.posterPath}';
@@ -74,16 +75,15 @@ class _MoviePageState extends State<MoviePage> {
                               scrollDirection: Axis.horizontal,
                               itemCount: data.genres?.length,
                               itemBuilder: (context, index) {
-                                String? genresName = data.genres?[index].name;
+                                Genres? genresData = data.genres?[index];
                                 return Padding(
                                   padding: const EdgeInsets.only(
                                       right: 20, left: 20, top: 8, bottom: 18),
-                                  // add navigator
                                   child: GestureDetector(
                                     onTap: () {
                                       context
-                                          .read<MovieDataBloc>()
-                                          .add(MovieDataEvent(id: data.id));
+                                          .read<GenreMovieBloc>()
+                                          .add(GenreMovieEvent(id: genresData.id));
                                       Navigator.push(context,
                                           MaterialPageRoute<void>(
                                         builder: (BuildContext context) {
@@ -104,7 +104,7 @@ class _MoviePageState extends State<MoviePage> {
                                           ]),
                                       child: Chip(
                                         label: Text(
-                                          genresName.toString(),
+                                          genresData!.name.toString(),
                                           style: const TextStyle(
                                               color: Color(0xFFFFD255)),
                                         ),

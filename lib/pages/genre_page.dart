@@ -1,7 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:sine_fil_app/bloc/genre_bloc/genre_bloc.dart';
 import 'package:sine_fil_app/bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
 
 import '../bloc/movie_data_bloc/movie_data_bloc_bloc.dart';

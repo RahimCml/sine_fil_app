@@ -19,7 +19,6 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
 
   void fetchDataFromService() async {
     MovieTrendModel result = await _movieService.trendMovieInfo();
-          print('1 $result');
     emit(MovieState(trend: result));
   }
 }

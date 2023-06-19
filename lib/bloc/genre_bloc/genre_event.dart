@@ -6,4 +6,6 @@ class GenreEvent {
   GenreEvent({
     this.id = '28',
   });
+
+  void add(GenreEvent genreEvent) {}
 }

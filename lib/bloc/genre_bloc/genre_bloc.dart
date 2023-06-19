@@ -16,7 +16,6 @@ class GenreBloc extends Bloc<GenreEvent, GenreState> {
 
   void getGenreFromService() async {
     GenresGetModel result = await _movieService.genresInfo();
-    print('2 $result');
     emit(GenreState(genres: result));
   }
 }

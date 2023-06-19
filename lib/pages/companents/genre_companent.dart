@@ -28,7 +28,6 @@ class _GenresCompannentState extends State<GenresCompannent> {
             itemBuilder: (context, index) {
               final movie = movies?.results?[index];
               String? posterPath = state.movies?.results?[index].posterPath;
-              print(posterPath);
               String imageUrl = "${GlobalImage.baseUrl}${GlobalImage.imageSize}$posterPath";
               return Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
