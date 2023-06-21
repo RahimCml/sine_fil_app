@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sine_fil_app/constants/color.dart';
 import 'package:sine_fil_app/pages/companents/genre_companent.dart';
 import 'package:sine_fil_app/pages/genres_type_page.dart';
-import 'package:sine_fil_app/pages/log_in.dart';
+import 'package:sine_fil_app/pages/log_in_page.dart';
 import 'package:sine_fil_app/pages/trend_page.dart';
 
 import '../data/service/movie_service.dart';
@@ -86,9 +86,9 @@ class _HomePageState extends State<HomePage> {
                     IconButton(
                       icon: Icon(Icons.lock_outline, color: ConstantColor.secondarycolor,),
                       onPressed: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute<void>(
+                        Navigator.push(context, MaterialPageRoute<void>(
                             builder: (BuildContext context) {
-                          return const LogIn();
+                          return const LoginPage();
                         }));
                       },
                       color: ConstantColor.kMainColor,

@@ -8,6 +8,7 @@ import '../bloc/movie_data_bloc/movie_data_bloc_bloc.dart';
 import '../constants/color.dart';
 import '../global/global_image_url.dart';
 import 'layout_page.dart';
+import 'log_in_page.dart';
 import 'movie_page.dart';
 
 class GenrePage extends StatefulWidget {
@@ -36,10 +37,15 @@ Navigator.pushNamedAndRemoveUntil(context, '/layout', (route) => false);
             ),
             actions: [
               IconButton(
-                icon: const Icon(Icons.lock_outline),
-                onPressed: null,
-                color: ConstantColor.kMainColor,
-              ),
+                      icon: Icon(Icons.lock_outline, color: ConstantColor.secondarycolor,),
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute<void>(
+                            builder: (BuildContext context) {
+                          return const LoginPage();
+                        }));
+                      },
+                      color: ConstantColor.kMainColor,
+                    )
             ]),
         body: BlocBuilder<GenreMovieBloc, GenreMovieState>(
             builder: (context, state) {
