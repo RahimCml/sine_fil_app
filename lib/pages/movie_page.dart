@@ -38,26 +38,33 @@ class _MoviePageState extends State<MoviePage> {
             children: [
               SizedBox(
                 height: size.height / 2,
-                child: Stack(children: [
-                  Container(
+                child: Stack(
+                  children: [
+                    Container(
                       height: size.height / 2,
                       decoration: BoxDecoration(
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(50)),
+                        borderRadius: const BorderRadius.all(Radius.circular(50)),
                         image: DecorationImage(
                           image: NetworkImage(imgUrl),
                           fit: BoxFit.cover,
                         ),
-                      )),
-                ]),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 20),
                 child: Center(
-                    child: Text(
-                  data.title.toString(),
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                )),
+                  child: Text(
+                    data.title.toString(),
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                      color: ConstantColor.kMainColor,
+                    ),
+                  ),
+                ),
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +74,7 @@ class _MoviePageState extends State<MoviePage> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 30),
+                          padding: const EdgeInsets.only(top: 20),
                           child: SizedBox(
                             height: 60,
                             child: ListView.builder(
@@ -77,40 +84,49 @@ class _MoviePageState extends State<MoviePage> {
                                 Genres? genresData = data.genres?[index];
                                 return Padding(
                                   padding: const EdgeInsets.only(
-                                      right: 20, left: 20, top: 8, bottom: 18),
+                                    right: 20,
+                                    left: 20,
+                                    top: 8,
+                                    bottom: 18,
+                                  ),
                                   child: GestureDetector(
                                     onTap: () {
-                                      context
-                                          .read<GenreMovieBloc>()
-                                          .add(GenreMovieEvent(id: genresData.id));
-                                      Navigator.push(context,
-                                          MaterialPageRoute<void>(
-                                        builder: (BuildContext context) {
-                                          return const GenrePage();
-                                        },
-                                      ));
+                                      context.read<GenreMovieBloc>().add(
+                                            GenreMovieEvent(id: genresData.id),
+                                          );
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute<void>(
+                                          builder: (BuildContext context) {
+                                            return const GenrePage();
+                                          },
+                                        ),
+                                      );
                                     },
                                     child: Container(
                                       decoration: BoxDecoration(
-                                          borderRadius: const BorderRadius.all(
-                                              Radius.circular(20)),
-                                          color: ConstantColor.secondarycolor,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: ConstantColor.kMainColor,
-                                              blurRadius: 3,
-                                            )
-                                          ]),
+                                        borderRadius:
+                                            const BorderRadius.all(Radius.circular(20)),
+                                        color: ConstantColor.secondarycolor,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: ConstantColor.kMainColor,
+                                            blurRadius: 3,
+                                          ),
+                                        ],
+                                      ),
                                       child: Chip(
                                         label: Text(
                                           genresData!.name.toString(),
                                           style: const TextStyle(
-                                              color: Color(0xFFFFD255)),
+                                            color: Color(0xFFFFD255),
+                                          ),
                                         ),
-                                        backgroundColor:
-                                            const Color(0xFF444A54),
+                                        backgroundColor: const Color(0xFF444A54),
                                         padding: const EdgeInsets.only(
-                                            left: 12, right: 12),
+                                          left: 12,
+                                          right: 12,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -121,13 +137,21 @@ class _MoviePageState extends State<MoviePage> {
                         ),
                         SizedBox(
                           width: double.maxFinite,
+                          height: 215,
                           child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Text(
-                              data.overview.toString(),
-                              overflow: TextOverflow.clip,
-                              style:
-                                  const TextStyle(fontWeight: FontWeight.bold),
+                            padding: const EdgeInsets.only(left: 22),
+                            child: SingleChildScrollView(
+                              scrollDirection: Axis.vertical,
+                              child: Container(
+                                // color: Colors.red,
+                                child: Text(
+                                  data.overview.toString(),
+                                  style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                         ),
@@ -136,96 +160,105 @@ class _MoviePageState extends State<MoviePage> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
-                        right: 18, left: 8, bottom: 18, top: 18),
+                      right: 18,
+                      left: 8,
+                      top: 2,
+                    ),
                     child: Container(
-                        width: size.width / 4,
-                        height: 300,
-                        decoration: BoxDecoration(
-                            color: ConstantColor.kMainColor,
-                            borderRadius:
-                                const BorderRadius.all(Radius.circular(20))),
-                        child: Column(
-                          children: [
-                            Container(
-                              height: 100,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  color: ConstantColor.kMainColor,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: ConstantColor.secondarycolor
-                                          .withOpacity(0.3),
-                                      blurRadius: 5,
-                                    )
-                                  ],
-                                  borderRadius: const BorderRadius.only(
-                                      topLeft: Radius.circular(20),
-                                      topRight: Radius.circular(20))),
-                              child: Center(
-                                  child: Text(
+                      width: size.width / 4,
+                      height: 300,
+                      decoration: BoxDecoration(
+                        color: ConstantColor.kMainColor,
+                        borderRadius: const BorderRadius.all(Radius.circular(20)),
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            height: 100,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: ConstantColor.kMainColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: ConstantColor.secondarycolor.withOpacity(0.3),
+                                  blurRadius: 5,
+                                ),
+                              ],
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                topRight: Radius.circular(20),
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
                                 '${data.runtime.toString()} dk.',
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.w800),
-                              )),
-                            ),
-                            Container(
-                              height: 100,
-                              decoration: BoxDecoration(
-                                color: ConstantColor.kMainColor,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: ConstantColor.secondarycolor
-                                        .withOpacity(0.3),
-                                    blurRadius: 5,
-                                  )
-                                ],
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                //add star in order to give star for this movie
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: const [
-                                      Icon(Icons.star),
-                                      Icon(Icons.star),
-                                      Icon(Icons.star),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: const [
-                                      Icon(Icons.star_border),
-                                      Icon(Icons.star_border),
-                                    ],
-                                  )
-                                ],
+                                  fontWeight: FontWeight.w800,
+                                ),
                               ),
                             ),
-                            Container(
-                              height: 100,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  color: ConstantColor.kMainColor,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: ConstantColor.secondarycolor
-                                          .withOpacity(0.3),
-                                      blurRadius: 5,
-                                    )
+                          ),
+                          Container(
+                            height: 100,
+                            decoration: BoxDecoration(
+                              color: ConstantColor.kMainColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: ConstantColor.secondarycolor.withOpacity(0.3),
+                                  blurRadius: 5,
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              //add star in order to give star for this movie
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Icon(Icons.star),
+                                    Icon(Icons.star),
+                                    Icon(Icons.star),
                                   ],
-                                  borderRadius: const BorderRadius.only(
-                                      bottomRight: Radius.circular(20),
-                                      bottomLeft: Radius.circular(20))),
-                              child: Center(
-                                  child: Text(
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Icon(Icons.star_border),
+                                    Icon(Icons.star_border),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: 100,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: ConstantColor.kMainColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: ConstantColor.secondarycolor.withOpacity(0.3),
+                                  blurRadius: 5,
+                                ),
+                              ],
+                              borderRadius: const BorderRadius.only(
+                                bottomRight: Radius.circular(20),
+                                bottomLeft: Radius.circular(20),
+                              ),
+                            ),
+                            child: Center(
+                              child: Text(
                                 data.releaseDate.toString(),
                                 style: const TextStyle(
-                                    fontWeight: FontWeight.w600),
-                              )),
-                            )
-                          ],
-                        )),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),

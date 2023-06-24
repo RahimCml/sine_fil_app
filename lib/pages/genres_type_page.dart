@@ -33,15 +33,17 @@ class _GenresTypePageState extends State<GenresTypePage> {
                   onTap: () {
                     context.read<GenreMovieBloc>().add(GenreMovieEvent(id: id));
                   },
-                  child: Container(decoration: BoxDecoration(
-                                        borderRadius: const BorderRadius.all(Radius.circular(20)),
-                                          color: ConstantColor.secondarycolor,
-                                          boxShadow: [
-                                            BoxShadow(
-                                                color: ConstantColor.kMainColor,
-                                                blurRadius: 3,
-                                                )
-                                          ]),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(20)),
+                        color: ConstantColor.secondarycolor,
+                        boxShadow: [
+                          BoxShadow(
+                            color: ConstantColor.kMainColor,
+                            blurRadius: 3,
+                          )
+                        ]),
                     child: Chip(
                       label: Text(
                         genreName!,

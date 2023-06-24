@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sine_fil_app/constants/color.dart';
 
 import '../../bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
 import '../../bloc/movie_data_bloc/movie_data_bloc_bloc.dart';
@@ -57,7 +58,7 @@ class _GenresCompannentState extends State<GenresCompannent> {
                           movie?.title ?? '',
                           maxLines: 4,
                           overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.center, style: TextStyle(color: ConstantColor.kMainColor),
                         ),
                       ),
                     ],

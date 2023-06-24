@@ -2,12 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sine_fil_app/bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
-import 'package:sine_fil_app/pages/home_page.dart';
 
 import '../bloc/movie_data_bloc/movie_data_bloc_bloc.dart';
 import '../constants/color.dart';
 import '../global/global_image_url.dart';
-import 'layout_page.dart';
 import 'log_in_page.dart';
 import 'movie_page.dart';
 
@@ -18,8 +16,8 @@ class GenrePage extends StatefulWidget {
   State<GenrePage> createState() => _GenrePageState();
 }
 
-
-class _GenrePageState extends State<GenrePage> with SingleTickerProviderStateMixin {
+class _GenrePageState extends State<GenrePage>
+    with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,8 +25,8 @@ class _GenrePageState extends State<GenrePage> with SingleTickerProviderStateMix
             backgroundColor: ConstantColor.kMainColor,
             title: GestureDetector(
               onTap: () {
-Navigator.pushNamedAndRemoveUntil(context, '/layout', (route) => false);
-
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/layout', (route) => false);
               },
               child: const Text(
                 'SINEFIL',
@@ -37,15 +35,18 @@ Navigator.pushNamedAndRemoveUntil(context, '/layout', (route) => false);
             ),
             actions: [
               IconButton(
-                      icon: Icon(Icons.lock_outline, color: ConstantColor.secondarycolor,),
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute<void>(
-                            builder: (BuildContext context) {
-                          return const LoginPage();
-                        }));
-                      },
-                      color: ConstantColor.kMainColor,
-                    )
+                icon: Icon(
+                  Icons.lock_outline,
+                  color: ConstantColor.secondarycolor,
+                ),
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const LoginPage();
+                  }));
+                },
+                color: ConstantColor.kMainColor,
+              )
             ]),
         body: BlocBuilder<GenreMovieBloc, GenreMovieState>(
             builder: (context, state) {
@@ -58,18 +59,21 @@ Navigator.pushNamedAndRemoveUntil(context, '/layout', (route) => false);
                   itemCount: state.movies?.results?.length,
                   itemBuilder: (context, index) {
                     final data = state.movies?.results?[index];
-                    DateTime parsedDate = DateTime.parse(data?.releaseDate as String);
+                    DateTime parsedDate =
+                        DateTime.parse(data?.releaseDate as String);
                     final year = parsedDate.year.toString();
                     dynamic imageUrl =
                         '${GlobalImage.baseUrl}${GlobalImage.imageSize}${data?.posterPath}';
                     return GestureDetector(
                       onTap: () {
-                        context.read<MovieDataBloc>().add(MovieDataEvent(id: data.id));
-                  Navigator.push(context, MaterialPageRoute<void>(
-                    builder: (BuildContext context) {
-                      return const MoviePage();
-                    },
-                  ));
+                        context
+                            .read<MovieDataBloc>()
+                            .add(MovieDataEvent(id: data.id));
+                        Navigator.push(context, MaterialPageRoute<void>(
+                          builder: (BuildContext context) {
+                            return const MoviePage();
+                          },
+                        ));
                       },
                       child: Row(
                         children: [
@@ -88,7 +92,10 @@ Navigator.pushNamedAndRemoveUntil(context, '/layout', (route) => false);
                                     '${data!.title.toString()} ($year)',
                                     maxLines: 5,
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: ConstantColor.kMainColor),
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 16,
+                                        color: ConstantColor.kMainColor),
                                   ),
                                   const SizedBox(
                                     height: 40,
@@ -97,9 +104,11 @@ Navigator.pushNamedAndRemoveUntil(context, '/layout', (route) => false);
                                     'KONUSU: ${data.overview.toString()}',
                                     maxLines: 2,
                                     textAlign: TextAlign.center,
-                                    style: const TextStyle(fontSize: 14),
+                                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
                                   ),
-                                  const SizedBox(height: 20,),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
                                   //runtime or point from imdb
                                   // Text('$')
                                 ],

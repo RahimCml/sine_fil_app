@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sine_fil_app/bloc/movie_data_bloc/movie_data_bloc_bloc.dart';
+import 'package:sine_fil_app/constants/color.dart';
 import 'package:sine_fil_app/global/global_image_url.dart';
 import 'package:sine_fil_app/pages/movie_page.dart';
 
@@ -50,9 +51,12 @@ class _TrendPageState extends State<TrendPage> {
                         errorWidget: (context, url, error) =>
                             const Icon(Icons.error),
                       ),
-                      Text(
-                        state.trend?.results?[index].title ?? '',
-                        textAlign: TextAlign.center,
+                      Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text(
+                          state.trend?.results?[index].title ?? '',
+                          textAlign: TextAlign.center, style: TextStyle(color: ConstantColor.kMainColor),
+                        ),
                       ),
                     ],
                   ),

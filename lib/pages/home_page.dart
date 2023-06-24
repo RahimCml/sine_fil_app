@@ -79,9 +79,9 @@ class _HomePageState extends State<HomePage> {
                             },
                             color: ConstantColor.secondarycolor
                           ),
-                    const Text(
+                    Text(
                       'SINEFIL',
-                      style: TextStyle(fontSize: 20, color: Colors.black),
+                      style: TextStyle(fontSize: 20, color: ConstantColor.secondarycolor),
                     ),
                     IconButton(
                       icon: Icon(Icons.lock_outline, color: ConstantColor.secondarycolor,),
@@ -140,9 +140,9 @@ class _HomePageState extends State<HomePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Padding(
-                        padding: EdgeInsets.only(top: 20, left: 28),
-                        child: Text('VİZYONDAKİLER'),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 20, left: 14),
+                        child: Text('VİZYONDAKİLER', style: TextStyle(fontSize: 18,color: ConstantColor.kMainColor),),
                       ),
                       const Padding(
                         padding: EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -169,10 +169,10 @@ class _HomePageState extends State<HomePage> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Padding(
-                                  padding: EdgeInsets.all(8.0),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    'YORUMLAR',
+                                    'YORUMLAR', style: TextStyle(color: ConstantColor.kMainColor),
                                   ),
                                 ),
                                 SizedBox(
@@ -189,8 +189,8 @@ class _HomePageState extends State<HomePage> {
                                       return Column(
                                         children: [
                                           Row(
-                                            children: const [
-                                              Align(
+                                            children: [
+                                              const Align(
                                                 alignment: Alignment.bottomLeft,
                                                 child: CircleAvatar(
                                                   backgroundColor:
@@ -198,8 +198,8 @@ class _HomePageState extends State<HomePage> {
                                                 ),
                                               ),
                                               Padding(
-                                                padding: EdgeInsets.all(8.0),
-                                                child: Text('Yorumlar...'),
+                                                padding: const EdgeInsets.all(8.0),
+                                                child: Text('Yorumlar...', style: TextStyle(color: ConstantColor.kMainColor),),
                                               ),
                                             ],
                                           ),
