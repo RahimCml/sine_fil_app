@@ -55,7 +55,7 @@ class _TrendPageState extends State<TrendPage> {
                         padding: const EdgeInsets.all(4.0),
                         child: Text(
                           state.trend?.results?[index].title ?? '',
-                          textAlign: TextAlign.center, style: TextStyle(color: ConstantColor.kMainColor),
+                          textAlign: TextAlign.center, style: TextStyle(color: ConstantColor.kTextColor),
                         ),
                       ),
                     ],

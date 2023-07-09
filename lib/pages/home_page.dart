@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     !menuOpen
                         ? IconButton(
-                            icon: Icon(Icons.menu, color: ConstantColor.secondarycolor,),
+                            icon: Icon(Icons.menu, color: ConstantColor.kTextColor,),
                             onPressed: () {
                               setState(() {
                                 widget.controller.forward();
@@ -81,10 +81,10 @@ class _HomePageState extends State<HomePage> {
                           ),
                     Text(
                       'SINEFIL',
-                      style: TextStyle(fontSize: 20, color: ConstantColor.secondarycolor),
+                      style: TextStyle(fontSize: 20, color: ConstantColor.kTextColor),
                     ),
                     IconButton(
-                      icon: Icon(Icons.lock_outline, color: ConstantColor.secondarycolor,),
+                      icon: Icon(Icons.lock_outline, color: ConstantColor.kTextColor,),
                       onPressed: () {
                         Navigator.push(context, MaterialPageRoute<void>(
                             builder: (BuildContext context) {
@@ -130,93 +130,96 @@ class _HomePageState extends State<HomePage> {
                                     padding: EdgeInsets.only(left: 340),
                                     child: Icon(Icons.search),
                                   ),
-                                  color: ConstantColor.secondarycolor,
+                                  color: ConstantColor.kTextColor,
                                 ),
                               )
                             ],
                           ),
                         ),
                       )),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 20, left: 14),
-                        child: Text('VİZYONDAKİLER', style: TextStyle(fontSize: 18,color: ConstantColor.kMainColor),),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-                        child: Expanded(flex: 1, child: TrendPage()),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-                        child: SizedBox(
-                            height: 40,
-                            width: double.infinity,
-                            child: GenresTypePage()),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Padding(
-                            padding:
-                                EdgeInsets.only(top: 20, left: 16, right: 20),
-                            child: SizedBox(
-                                height: 200, child: GenresCompannent()),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Text(
-                                    'YORUMLAR', style: TextStyle(color: ConstantColor.kMainColor),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 100,
-                                  child: ListView.builder(
-                                    padding: const EdgeInsets.only(
-                                      left: 20,
-                                      bottom: 20,
-                                    ),
-                                    dragStartBehavior: DragStartBehavior.start,
-                                    itemCount: 3,
-                                    scrollDirection: Axis.vertical,
-                                    itemBuilder: (context, index) {
-                                      return Column(
-                                        children: [
-                                          Row(
-                                            children: [
-                                              const Align(
-                                                alignment: Alignment.bottomLeft,
-                                                child: CircleAvatar(
-                                                  backgroundColor:
-                                                      Color(0xFF444A54),
-                                                ),
-                                              ),
-                                              Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: Text('Yorumlar...', style: TextStyle(color: ConstantColor.kMainColor),),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(
-                                            height: 20,
-                                          )
-                                        ],
-                                      );
-                                    },
-                                  ),
-                                ),
-                              ],
+                  Container(
+                    // color: ConstantColor.kTextColor,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 20, left: 14),
+                          child: Text('VİZYONDAKİLER', style: TextStyle(fontSize: 18,color: ConstantColor.kTextColor),),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                          child: Expanded(flex: 1, child: TrendPage()),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 20, left: 20, right: 20),
+                          child: SizedBox(
+                              height: 40,
+                              width: double.infinity,
+                              child: GenresTypePage()),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding:
+                                  EdgeInsets.only(top: 20, left: 16, right: 20),
+                              child: SizedBox(
+                                  height: 200, child: GenresCompannent()),
                             ),
-                          )
-                        ],
-                      ),
-                    ],
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(
+                                      'YORUMLAR', style: TextStyle(color: ConstantColor.kTextColor),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 100,
+                                    child: ListView.builder(
+                                      padding: const EdgeInsets.only(
+                                        left: 20,
+                                        bottom: 20,
+                                      ),
+                                      dragStartBehavior: DragStartBehavior.start,
+                                      itemCount: 3,
+                                      scrollDirection: Axis.vertical,
+                                      itemBuilder: (context, index) {
+                                        return Column(
+                                          children: [
+                                            Row(
+                                              children: [
+                                                const Align(
+                                                  alignment: Alignment.bottomLeft,
+                                                  child: CircleAvatar(
+                                                    backgroundColor:
+                                                        Color(0xFF444A54),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.all(8.0),
+                                                  child: Text('Yorumlar...', style: TextStyle(color: ConstantColor.kTextColor),),
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                              height: 20,
+                                            )
+                                          ],
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

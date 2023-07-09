@@ -37,7 +37,7 @@ class _GenresTypePageState extends State<GenresTypePage> {
                     decoration: BoxDecoration(
                         borderRadius:
                             const BorderRadius.all(Radius.circular(20)),
-                        color: ConstantColor.secondarycolor,
+                        color: ConstantColor.kTextColor,
                         boxShadow: [
                           BoxShadow(
                             color: ConstantColor.kMainColor,
@@ -47,9 +47,9 @@ class _GenresTypePageState extends State<GenresTypePage> {
                     child: Chip(
                       label: Text(
                         genreName!,
-                        style: const TextStyle(color: Color(0xFFFFD255)),
+                        style: TextStyle(color: ConstantColor.kMainColor),
                       ),
-                      backgroundColor: const Color(0xFF444A54),
+                      backgroundColor:  ConstantColor.kTextColor,
                       padding: const EdgeInsets.only(left: 12, right: 12),
                     ),
                   ),

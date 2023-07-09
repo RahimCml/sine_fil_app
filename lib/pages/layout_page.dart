@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sine_fil_app/constants/color.dart';
 
 import 'drawer_page.dart';
 import 'home_page.dart';
@@ -23,6 +24,7 @@ class _LayoutPageState extends State<LayoutPage> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ConstantColor.kTextColor,
       body: SizedBox(
         height: double.maxFinite,
         child: Stack(children: [

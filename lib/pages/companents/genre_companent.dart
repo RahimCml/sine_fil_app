@@ -58,7 +58,7 @@ class _GenresCompannentState extends State<GenresCompannent> {
                           movie?.title ?? '',
                           maxLines: 4,
                           overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.center, style: TextStyle(color: ConstantColor.kMainColor),
+                          textAlign: TextAlign.center, style: TextStyle(color: ConstantColor.kTextColor),
                         ),
                       ),
                     ],

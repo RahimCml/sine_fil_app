@@ -26,7 +26,7 @@ class _DrawerPageState extends State<DrawerPage> {
       child: ScaleTransition(
         scale: _scaleAnimation!,
         child: Container(
-          color: ConstantColor.secondarycolor,
+          color: ConstantColor.kTextColor,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(children: [
             const SizedBox(height: 50),

@@ -21,7 +21,9 @@ class _GenrePageState extends State<GenrePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ConstantColor.kTextColor,
         appBar: AppBar(
+          leading: Icon(Icons.arrow_back, color: ConstantColor.kTextColor,),
             backgroundColor: ConstantColor.kMainColor,
             title: GestureDetector(
               onTap: () {
@@ -37,7 +39,7 @@ class _GenrePageState extends State<GenrePage>
               IconButton(
                 icon: Icon(
                   Icons.lock_outline,
-                  color: ConstantColor.secondarycolor,
+                  color: ConstantColor.kTextColor,
                 ),
                 onPressed: () {
                   Navigator.push(context,
@@ -95,7 +97,7 @@ class _GenrePageState extends State<GenrePage>
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 16,
-                                        color: ConstantColor.kMainColor),
+                                        color: ConstantColor.kTextColor),
                                   ),
                                   const SizedBox(
                                     height: 40,
@@ -104,7 +106,7 @@ class _GenrePageState extends State<GenrePage>
                                     'KONUSU: ${data.overview.toString()}',
                                     maxLines: 2,
                                     textAlign: TextAlign.center,
-                                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+                                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: ConstantColor.kTextColor),
                                   ),
                                   const SizedBox(
                                     height: 20,

@@ -52,7 +52,7 @@ class LoginPage extends StatelessWidget {
                   },
                   child: Text(
                     'Log In',
-                    style: TextStyle(color: ConstantColor.secondarycolor),
+                    style: TextStyle(color: ConstantColor.kTextColor),
                   ),
                 ),
               ],

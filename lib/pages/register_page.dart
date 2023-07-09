@@ -109,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
               },
               child: Text(
                 'Kayd ol',
-                style: TextStyle(color: ConstantColor.kMainColor),
+                style: TextStyle(color: ConstantColor.kMainColor,fontWeight: FontWeight.bold),
               ),
             ),
           ],
