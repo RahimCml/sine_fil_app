@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sine_fil_app/pages/layout_page.dart';
-
 import 'bloc/genre_bloc/genre_bloc.dart';
 import 'bloc/genre_movie_bloc/genre_movie_bloc_bloc.dart';
 import 'bloc/movie_bloc.dart';
